@@ -9,23 +9,25 @@ import java.util.List;
 import java.util.Set;
 
 public class JvmExperience {
+
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Please open 'ru.netology.JvmExperience' in VisualVm");
-        Thread.sleep(30_000);
+        Thread.sleep(10_000);
 
         loadToMetaspaceAllFrom("io.vertx");
-        Thread.sleep(3_000);
+        Thread.sleep(5_000);
         loadToMetaspaceAllFrom("io.netty");
-        Thread.sleep(3_000);
+        Thread.sleep(5_000);
         loadToMetaspaceAllFrom("org.springframework");
-        Thread.sleep(3_000);
+        Thread.sleep(5_000);
 
         System.out.println(LocalTime.now() + ": now see heap");
-        List<SimpleObject> simpleObjects = createSimpleObjects(5_000_000);
-        Thread.sleep(3_000);
-        simpleObjects.addAll(createSimpleObjects(5_000_000));
-        Thread.sleep(3_000);
-        simpleObjects.addAll(createSimpleObjects(5_000_000));
+        Thread.sleep(7_000);
+        List<SimpleObject> simpleObjects = createSimpleObjects(20_000_000);
+        Thread.sleep(7_000);
+        simpleObjects.addAll(createSimpleObjects(20_000_000));
+        Thread.sleep(7_000);
+        simpleObjects.addAll(createSimpleObjects(20_000_000));
         Thread.sleep(3_000);
     }
 
@@ -52,6 +54,7 @@ public class JvmExperience {
 
     static class SimpleObject {
         final Integer value;
+
         SimpleObject(int value) {
             this.value = value;
         }
